@@ -92,5 +92,10 @@ def predict_fn(input_data, model):
         output = model.forward(data)
         
     result = np.round(output.numpy()).astype(int)
+    if result > 0.5:
+        result = np.int(1)
+    else:
+        result = np.int(0)
+
 
     return result
